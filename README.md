@@ -53,6 +53,10 @@ services:
     networks:
       - my_network
 
+  #
+  # I've included Guacamole example below. It's not part of this repository,
+  # and it's only for your information as an example.
+  #
   gc_guacd:
     image: guacamole/guacd
     container_name: gc_guacd
@@ -104,7 +108,7 @@ services:
     - sw_gc_postgres_data:/var/lib/postgresql/data
 ```
 
-I've left ./config directory available to be able to share files with the container. Not used yet in this version.
+I've left ./config directory available to be able to share files with the container.
 
 ```zsh
 .
@@ -112,7 +116,7 @@ I've left ./config directory available to be able to share files with the contai
 │   ├── run.sh
 ```
 
-- `run.sh` Optional. This script, if present, is executed from within `entrypoint.sh`
+- `run.sh` It's optional. I've included a sample script. If this script is present it'll be called/executed from within `entrypoint.sh`
 
 Start your services
 
@@ -120,11 +124,11 @@ Start your services
 docker compose up --build -d
 ```
 
-In my example, you can now access the following ports:
+In the example above you would have the following ports available from this base image. Not that I'm not covering the guacamole ones
 
 - `ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p 9022 alpine@localhost`
 - [http://localhost:9002](http://localhost:9002) - Exposed supervisord port
-- [http://localhost:33892](http://localhost:33892) - Exposed RDP port
+- [http://localhost:33892](http://localhost:33892) - Exposed RDP port, that you can consume from any RDP client.
 
 Otherwise, connect to the container directly
 
