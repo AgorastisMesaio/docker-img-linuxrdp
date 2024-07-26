@@ -1,0 +1,20 @@
+### Docker Compose example
+services:
+  ct_linuxrdp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: sw-luis-palacios/base-linuxrdp
+    hostname: linuxrdp
+    container_name: ct_linuxrdp
+    ports:
+      - "9022:22"     # Exposed ssh port
+      - "9002:9001"   # Exposed supervisord port
+      #- "5902:5900"   # Exposed VLC port
+      - "33892:3389"  # Exposed RDP port
+    environment:
+      - ROOTPASS=alpine           # Optional
+      - USERNAME=alpine           # Optional
+      - USERPASS=alpine           # Optional
+    volumes:
+      - ./config:/config          # Optional
