@@ -1,6 +1,6 @@
 # Linux Desktop XFCE4 XRDP
 
-![GitHub action workflow status](https://github.com/SW-Luis-Palacios/base-linuxrdp/actions/workflows/docker-publish.yml/badge.svg)
+![GitHub action workflow status](https://github.com/AgorastisMesaio/docker-img-linuxrdp/actions/workflows/docker-publish.yml/badge.svg)
 
 This repository contains a `Dockerfile` aimed to create a *base image* to provide a Linux Desktop with XFCE4 and XRDP.
 
@@ -37,7 +37,7 @@ networks:
 
 services:
   ct_linuxrdp:
-    image: sw-luis-palacios/base-linuxrdp
+    image: agorastismesaio/docker-img-linuxrdp
     hostname: linuxrdp.company.com
     container_name: ct_linuxrdp
     ports:
@@ -145,7 +145,7 @@ If you copy or fork this project to create your own base image.
 To build the Docker image, run the following command in the directory containing the Dockerfile:
 
 ```sh
-docker build -t your-image/base-linuxrdp .
+docker build -t your-image/docker-img-linuxrdp .
 or
 docker compose up --build -d
 ```
@@ -153,5 +153,5 @@ docker compose up --build -d
 ### Troubleshoot
 
 ```sh
-docker run --rm --name ct_linuxrdp --hostname linuxrdp --shm-size 1g -p 33892:3389 -p 9022:22 -p 5992:5900 sw-luis-palacios/base-linuxrdp
+docker run --rm --name ct_linuxrdp --hostname linuxrdp --shm-size 1g -p 33892:3389 -p 9022:22 -p 5992:5900 agorastismesaio/docker-img-linuxrdp
 ```

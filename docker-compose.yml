@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: sw-luis-palacios/base-linuxrdp
+    image: agorastismesaio/docker-img-linuxrdp
     hostname: linuxrdp
     container_name: ct_linuxrdp
     ports:
